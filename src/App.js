@@ -5,9 +5,9 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      {name:'Max', age:'32'},
-      {name:'Manu',age:'26'},
-      {name:'Staphnee', age:'25'}
+      {id:1, name:'Max', age:'32'},
+      {id:2, name:'Manu',age:'26'},
+      {id:3,name:'Staphnee', age:'25'}
     ],
     otherState: 'some other value',
     showPersons: false
@@ -23,9 +23,9 @@ class App extends Component {
   nameChangeHandler = (event) => {
     this.setState({
       persons: [
-        {name:'Max', age:'32'},
-        {name: event.target.value,age:'26'},
-        {name:'Staphnee', age:'25'}
+        {id:1, name:'Max', age:'32'},
+        {id:2, name: event.target.value,age:'26'},
+        {id:3, name:'Staphnee', age:'25'}
       ]
     })
   };
@@ -53,7 +53,8 @@ class App extends Component {
               return <Person
                        click={()=> this.deletePersonsHandler(index)}
                        name={person.name}
-                       age={person.age} />  
+                       age={person.age}
+                       key={person.id} />  
           })}
         </div>
       );
